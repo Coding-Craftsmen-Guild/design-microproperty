@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; font-family: Montserrat, "Segoe UI", sans-serif; background: #1B252F; }
+    a { color: #D3B574; text-decoration: none; }
+    a:hover { color: #FFFFFF; }
+    .serif { font-family: Lora, Georgia, serif; }
+    .hamb { display: none; }
+    @media (max-width: 900px) {
+      .navlinks, .navcta { display: none !important; }
+      .hamb { display: flex !important; }
+      .pad { padding-left: 22px !important; padding-right: 22px !important; }
+      .rgrid { grid-template-columns: 1fr !important; }
+      .row { flex-direction: column !important; align-items: flex-start !important; }
+      .errnum { font-size: 96px !important; }
+      .bigtitle { font-size: 30px !important; }
+    }
+  </style>
+</helmet>
+
+<div style="background: #1B252F; color: #FFFFFF; min-height: 100vh; display: flex; flex-direction: column;">
+  <dc-import name="Site Header" active="" hint-size="100%,72px"></dc-import>
+
+  <div class="pad rgrid" style="flex: 1; padding: 84px 56px 96px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; max-width: 1240px;">
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <div class="errnum serif" style="font-size: 132px; font-weight: 600; line-height: 0.9; color: #D3B574; letter-spacing: -0.03em;">404</div>
+      <div class="serif bigtitle" style="font-size: 36px; font-weight: 600; line-height: 1.2; color: #FFFFFF; max-width: 520px;">Ova stranica ne postoji</div>
+      <div style="font-size: 15px; line-height: 1.75; color: #C8D5DC; max-width: 480px;">Adresa je verovatno pogrešno upisana, ili je stranica premeštena. Ispod su najčešće tražene stranice.</div>
+      <div class="row" style="display: flex; gap: 12px; padding-top: 6px;">
+        <a href="Home.dc.html" style="display: inline-flex; align-items: center; justify-content: center; background: #D3B574; color: #1B252F; padding: 15px 28px; border-radius: 2px; font-size: 13.5px; font-weight: 700;">Na početnu</a>
+        <a href="tel:+381604060436" style="display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(200,213,220,0.45); color: #FFFFFF; padding: 15px 28px; border-radius: 2px; font-size: 13.5px; font-weight: 600;">060 4060 436</a>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; border-top: 1px solid rgba(200,213,220,0.22);">
+      <a href="Projekti.dc.html" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(200,213,220,0.22); color: #FFFFFF;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div class="serif" style="font-size: 19px; font-weight: 600;">Projekti</div>
+          <div style="font-size: 12.5px; color: #8e9aa5;">Sva naselja u prodaji i gradnji</div>
+        </div>
+        <div style="color: #D3B574; font-size: 18px;">→</div>
+      </a>
+      <a href="Vile Senicani.dc.html" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(200,213,220,0.22); color: #FFFFFF;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div class="serif" style="font-size: 19px; font-weight: 600;">Vile Seničani</div>
+          <div style="font-size: 12.5px; color: #8e9aa5;">24 duplex jedinice, useljenje 2027</div>
+        </div>
+        <div style="color: #D3B574; font-size: 18px;">→</div>
+      </a>
+      <a href="Novosti.dc.html" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(200,213,220,0.22); color: #FFFFFF;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div class="serif" style="font-size: 19px; font-weight: 600;">Novosti</div>
+          <div style="font-size: 12.5px; color: #8e9aa5;">Napredak gradnje i najave</div>
+        </div>
+        <div style="color: #D3B574; font-size: 18px;">→</div>
+      </a>
+      <a href="Kontakt.dc.html" style="display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 20px 0; border-bottom: 1px solid rgba(200,213,220,0.22); color: #FFFFFF;">
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div class="serif" style="font-size: 19px; font-weight: 600;">Kontakt</div>
+          <div style="font-size: 12.5px; color: #8e9aa5;">Obilazak gradilišta i upit za cenu</div>
+        </div>
+        <div style="color: #D3B574; font-size: 18px;">→</div>
+      </a>
+    </div>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

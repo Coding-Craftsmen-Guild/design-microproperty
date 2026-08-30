@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; font-family: Montserrat, "Segoe UI", sans-serif; background: #FFFFFF; }
+    a { color: #8B6F46; text-decoration: none; }
+    a:hover { color: #D3B574; }
+    .serif { font-family: Lora, Georgia, serif; }
+    .rv { transition: opacity 0.7s ease, transform 0.7s ease; }
+    .rv.pre { opacity: 0; transform: translateY(26px); }
+      .hamb { display: none; }
+    @media (max-width: 900px) {
+      .navlinks, .navcta, .hstats { display: none !important; }
+      .hamb { display: flex !important; }
+      .pad { padding-left: 22px !important; padding-right: 22px !important; }
+      .rgrid { grid-template-columns: 1fr !important; }
+      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .row { flex-direction: column !important; align-items: flex-start !important; }
+      .bigtitle { font-size: 32px !important; }
+      .midtitle { font-size: 25px !important; }
+      .tblgrid { min-width: 860px; }
+    }
+  </style>
+</helmet>
+
+<div style="background: #FFFFFF; color: #212121;">
+  <dc-import name="Site Header" active="lokacija" hint-size="100%,72px"></dc-import>
+
+  <div style="position: relative; height: 400px; overflow: hidden;">
+    <img src="assets/g2.jpg" alt="Priroda Šumadije oko naselja" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(27,37,47,0.92) 0%, rgba(27,37,47,0.65) 50%, rgba(27,37,47,0.2) 100%);"></div>
+    <div class="pad" style="position: absolute; inset: 0; padding: 0 56px; display: flex; flex-direction: column; justify-content: center; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #C8D5DC;">
+        <a href="Home.dc.html" style="color: #C8D5DC;">Početna</a><span>/</span><span style="color: #D3B574; font-weight: 600;">Lokacija</span>
+      </div>
+      <div class="serif bigtitle" style="font-size: 46px; font-weight: 600; color: #FFFFFF; line-height: 1.1;">Seničani, Aranđelovac</div>
+      <div style="font-size: 15.5px; line-height: 1.65; color: #C8D5DC; max-width: 560px;">Između Bukulje i Venčca, na 70 km od Beograda — dovoljno daleko za mir, dovoljno blizu za svakodnevni život.</div>
+    </div>
+  </div>
+
+  <!-- MAP + DISTANCES -->
+  <div class="pad rgrid" style="padding: 72px 56px; display: grid; grid-template-columns: 1.4fr 1fr; gap: 40px; align-items: stretch;">
+    <div class="rv" style="background: #F4F1EA; border: 1px solid #E4E9EC; border-radius: 3px; padding: 24px; display: flex; flex-direction: column; gap: 14px;">
+      <svg viewBox="0 0 720 420" style="width: 100%; height: auto;">
+        <path d="M0 90 C 120 70, 200 110, 300 95 C 420 78, 520 120, 720 100" stroke="#c9d4da" stroke-width="3" fill="none"></path>
+        <text x="14" y="76" font-size="11" fill="#6a7580" font-family="Montserrat" font-weight="600">AUTOPUT E-763 → BEOGRAD 70 KM</text>
+        <path d="M300 95 C 310 180, 330 260, 360 330" stroke="#c9d4da" stroke-width="2.5" fill="none"></path>
+        <circle cx="360" cy="330" r="9" fill="#D3B574" stroke="#1B252F" stroke-width="2.5"></circle>
+        <circle cx="360" cy="330" r="20" fill="none" stroke="#D3B574" stroke-width="1.5" opacity="0.5"></circle>
+        <text x="380" y="326" font-size="15" fill="#1B252F" font-family="Lora, Georgia" font-weight="600">Vile Seničani</text>
+        <text x="380" y="344" font-size="11" fill="#6a7580" font-family="Montserrat">naselje Seničani</text>
+        <circle cx="290" cy="385" r="6" fill="#1B252F"></circle>
+        <text x="304" y="390" font-size="12" fill="#1B252F" font-family="Montserrat" font-weight="600">Aranđelovac · 5 min</text>
+        <circle cx="250" cy="330" r="5" fill="#8B6F46"></circle>
+        <text x="140" y="335" font-size="11.5" fill="#4a5560" font-family="Montserrat">Bukovička banja</text>
+        <circle cx="480" cy="250" r="5" fill="#8B6F46"></circle>
+        <text x="494" y="255" font-size="11.5" fill="#4a5560" font-family="Montserrat">Jezero Garaši · 20 min</text>
+        <path d="M120 210 L160 160 L200 210 Z" fill="none" stroke="#8B6F46" stroke-width="1.6"></path>
+        <text x="122" y="232" font-size="11.5" fill="#4a5560" font-family="Montserrat">Bukulja · 700 m n.v.</text>
+        <path d="M560 150 L600 100 L640 150 Z" fill="none" stroke="#8B6F46" stroke-width="1.6"></path>
+        <text x="556" y="172" font-size="11.5" fill="#4a5560" font-family="Montserrat">Venčac</text>
+        <circle cx="205" cy="285" r="5" fill="#8B6F46"></circle>
+        <text x="96" y="290" font-size="11.5" fill="#4a5560" font-family="Montserrat">Aqua park · 3 km</text>
+      </svg>
+      <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #E4E9EC; padding-top: 14px;">
+        <div style="font-size: 12px; color: #6a7580;">Šematski prikaz — nije u razmeri</div>
+        <a href="https://maps.google.com/?q=Seni%C4%8Dani,+Aran%C4%91elovac" style="display: inline-flex; align-items: center; gap: 8px; font-size: 12.5px; font-weight: 700; color: #8B6F46;">Otvorite u Google mapama →</a>
+      </div>
+    </div>
+    <div class="rv" style="display: flex; flex-direction: column; gap: 14px;">
+      <div class="serif" style="font-size: 26px; font-weight: 600; color: #1B252F;">Udaljenosti</div>
+      <sc-for list="{{ dists }}" as="d" hint-placeholder-count="0">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #EEF1F3; padding: 11px 2px;">
+          <span style="font-size: 13.5px; color: #4a5560;">{{ d.k }}</span>
+          <span style="font-size: 13.5px; font-weight: 700; color: #1B252F;">{{ d.v }}</span>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- AMENITIES -->
+  <div class="pad" style="background: #F4F1EA; padding: 68px 56px; display: flex; flex-direction: column; gap: 32px;">
+    <div class="rv" style="display: flex; flex-direction: column; gap: 12px; max-width: 620px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 32px; height: 2px; background: #D3B574;"></div>
+        <div style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8B6F46;">Šta vas okružuje</div>
+      </div>
+      <div class="serif midtitle" style="font-size: 34px; font-weight: 600; color: #1B252F;">Vikend-destinacija koja je postala adresa</div>
+    </div>
+    <div class="rv rgrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+      <sc-for list="{{ amenities }}" as="a" hint-placeholder-count="0">
+        <div style="background: #FFFFFF; border: 1px solid #E4E9EC; border-radius: 3px; padding: 24px 22px; display: flex; flex-direction: column; gap: 10px;">
+          <div class="serif" style="font-size: 19px; font-weight: 600; color: #1B252F;">{{ a.title }}</div>
+          <div style="font-size: 13px; line-height: 1.7; color: #4a5560;">{{ a.text }}</div>
+        </div>
+      </sc-for>
+    </div>
+    <div class="rv rgrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+      <img src="assets/g1.jpg" alt="Priroda oko naselja" style="width: 100%; height: 190px; object-fit: cover; border-radius: 2px;">
+      <img src="assets/g2.jpg" alt="Pogled na Bukulju" style="width: 100%; height: 190px; object-fit: cover; border-radius: 2px;">
+      <img src="assets/g3.jpg" alt="Okolina Seničana" style="width: 100%; height: 190px; object-fit: cover; border-radius: 2px;">
+      <img src="assets/g4.jpg" alt="Šumadijski pejzaž" style="width: 100%; height: 190px; object-fit: cover; border-radius: 2px;">
+    </div>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { import('./anim.js').then(m => { this._stop = m.startReveal(); }); }
+  componentWillUnmount() { if (this._stop) this._stop(); }
+  renderVals() {
+    return {
+      dists: [
+        { k: 'Centar Aranđelovca', v: '5 min' },
+        { k: 'Bukovička banja i park', v: '3 km' },
+        { k: 'Aqua park "Izvor"', v: '3 km' },
+        { k: 'Osnovna škola i vrtić', v: '6 min' },
+        { k: 'Dom zdravlja', v: '7 min' },
+        { k: 'Jezero Garaši', v: '20 min' },
+        { k: 'Orašac', v: '15 min' },
+        { k: 'Topola i Oplenac', v: '25 min' },
+        { k: 'Beograd (E-763)', v: '70 km' },
+        { k: 'Aerodrom Nikola Tesla', v: '80 km' }
+      ],
+      amenities: [
+        { title: 'Bukovička banja', text: 'Park od 22 hektara, termalni izvori i Specijalna bolnica — na 3 km od naselja.' },
+        { title: 'Aqua park "Izvor"', text: 'Najveći aqua park u Srbiji, otvoren leti — 10 bazena i tobogani za celu porodicu.' },
+        { title: 'Bukulja i Venčac', text: 'Planinarske staze do vidikovca na 700 m nadmorske visine, kroz hrastovu i bukovu šumu.' },
+        { title: 'Jezero Garaši', text: 'Ribolov i mir na 20 minuta vožnje — jezero koje snabdeva Aranđelovac vodom.' },
+        { title: 'Šumadijski vinski put', text: 'Vinarije Tarpoš i Eden na par minuta — degustacije i vinogradi na obroncima Venčca.' },
+        { title: 'Orašac i Oplenac', text: 'Mesto Prvog srpskog ustanka i zadužbina Karađorđevića — istorija na kućnom pragu.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

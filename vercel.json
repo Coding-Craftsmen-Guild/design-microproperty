@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "/", "dest": "/Home.dc.html" },
+    { "src": "/pocetna", "dest": "/Home.dc.html" },
+    { "src": "/projekti", "dest": "/Projekti.dc.html" },
+    { "src": "/vile-senicani", "dest": "/Vile%20Senicani.dc.html" },
+    { "src": "/vile-senicani-2", "dest": "/Vile%20Senicani%202.dc.html" },
+    { "src": "/duplex-1", "dest": "/Duplex%201.dc.html" },
+    { "src": "/lokacija", "dest": "/Lokacija.dc.html" },
+    { "src": "/novosti", "dest": "/Novosti.dc.html" },
+    { "src": "/novost", "dest": "/Novost.dc.html" },
+    { "src": "/o-nama", "dest": "/O%20Nama.dc.html" },
+    { "src": "/kontakt", "dest": "/Kontakt.dc.html" },
+    { "src": "/500", "dest": "/500.dc.html" },
+    { "handle": "filesystem" },
+    { "src": "/(.*)", "status": 404, "dest": "/404.dc.html" }
+  ]
+}

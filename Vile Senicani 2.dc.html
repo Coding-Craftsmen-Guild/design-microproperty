@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; font-family: Montserrat, "Segoe UI", sans-serif; background: #FFFFFF; }
+    a { color: #8B6F46; text-decoration: none; }
+    a:hover { color: #D3B574; }
+    .serif { font-family: Lora, Georgia, serif; }
+    .rv { transition: opacity 0.7s ease, transform 0.7s ease; }
+    .rv.pre { opacity: 0; transform: translateY(26px); }
+    input, textarea { font-family: Montserrat, sans-serif; }
+      .hamb { display: none; }
+    @media (max-width: 900px) {
+      .navlinks, .navcta, .hstats { display: none !important; }
+      .hamb { display: flex !important; }
+      .pad { padding-left: 22px !important; padding-right: 22px !important; }
+      .rgrid { grid-template-columns: 1fr !important; }
+      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .row { flex-direction: column !important; align-items: flex-start !important; }
+      .bigtitle { font-size: 32px !important; }
+      .midtitle { font-size: 25px !important; }
+      .tblgrid { min-width: 860px; }
+    }
+  </style>
+</helmet>
+
+<div style="background: #FFFFFF; color: #212121;">
+  <dc-import name="Site Header" active="projekti" hint-size="100%,72px"></dc-import>
+
+  <div style="position: relative; height: 440px; overflow: hidden;">
+    <img src="assets/r-c.jpg" alt="Vile Seničani 2 — render naselja" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(27,37,47,0.92) 0%, rgba(27,37,47,0.7) 50%, rgba(27,37,47,0.2) 100%);"></div>
+    <div class="pad" style="position: absolute; inset: 0; padding: 0 56px; display: flex; flex-direction: column; justify-content: center; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #C8D5DC;">
+        <a href="Home.dc.html" style="color: #C8D5DC;">Početna</a><span>/</span><a href="Projekti.dc.html" style="color: #C8D5DC;">Projekti</a><span>/</span><span style="color: #D3B574; font-weight: 600;">Vile Seničani 2</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div class="serif bigtitle" style="font-size: 48px; font-weight: 600; color: #FFFFFF; line-height: 1.1;">Vile Seničani 2</div>
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: #D3B574; border: 1px solid rgba(211,181,116,0.6); padding: 6px 12px; border-radius: 2px;">U pripremi</div>
+      </div>
+      <div style="font-size: 16px; line-height: 1.65; color: #C8D5DC; max-width: 560px;">Rezervišite ranije, platite manje — i gledajte kako vaša kuća raste iz nedelje u nedelju.</div>
+    </div>
+  </div>
+
+  <div class="pad rgrid" style="padding: 72px 56px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start;">
+    <div class="rv" style="display: flex; flex-direction: column; gap: 24px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 2px; background: #D3B574;"></div>
+          <div style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8B6F46;">Druga faza</div>
+        </div>
+        <div class="serif midtitle" style="font-size: 34px; font-weight: 600; color: #1B252F; line-height: 1.2;">Sve što kupci prve faze traže — ugrađeno od početka</div>
+        <div style="font-size: 14.5px; line-height: 1.7; color: #4a5560;">Drugu fazu projektujemo na osnovu razgovora sa stotinama kupaca iz prve. Dve stvari su tražene iznad svega: garaža i ograđeno dvorište. Obe su sada standard.</div>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style="border: 1px solid #E4E9EC; border-top: 3px solid #D3B574; padding: 22px; display: flex; flex-direction: column; gap: 8px;">
+          <div class="serif" style="font-size: 19px; font-weight: 600; color: #1B252F;">Garaža uz svaku jedinicu</div>
+          <div style="font-size: 13px; line-height: 1.65; color: #4a5560;">Zatvorena garaža + parking mesto ispred, umesto dva otvorena mesta.</div>
+        </div>
+        <div style="border: 1px solid #E4E9EC; border-top: 3px solid #D3B574; padding: 22px; display: flex; flex-direction: column; gap: 8px;">
+          <div class="serif" style="font-size: 19px; font-weight: 600; color: #1B252F;">Ograđeno dvorište</div>
+          <div style="font-size: 13px; line-height: 1.65; color: #4a5560;">Privatno dvorište uz dnevni boravak — bezbedno za decu i ljubimce.</div>
+        </div>
+        <div style="border: 1px solid #E4E9EC; border-top: 3px solid #D3B574; padding: 22px; display: flex; flex-direction: column; gap: 8px;">
+          <div class="serif" style="font-size: 19px; font-weight: 600; color: #1B252F;">Rana rezervacija</div>
+          <div style="font-size: 13px; line-height: 1.65; color: #4a5560;">Povoljniji uslovi i izbor pozicije pre početka prodaje.</div>
+        </div>
+        <div style="border: 1px solid #E4E9EC; border-top: 3px solid #D3B574; padding: 22px; display: flex; flex-direction: column; gap: 8px;">
+          <div class="serif" style="font-size: 19px; font-weight: 600; color: #1B252F;">Gradnja pred vašim očima</div>
+          <div style="font-size: 13px; line-height: 1.65; color: #4a5560;">Nedeljni izveštaji sa fotografijama vaše jedinice, od temelja do krova.</div>
+        </div>
+      </div>
+      <div style="background: #F4F1EA; border-radius: 3px; padding: 22px 24px; display: flex; gap: 24px; align-items: center;">
+        <div class="serif" style="font-size: 30px; font-weight: 600; color: #8B6F46; line-height: 1;">2027</div>
+        <div style="font-size: 13px; line-height: 1.6; color: #1B252F;">Početak gradnje planiran za jesen 2026, useljenje krajem 2027. Broj i tipovi jedinica biće objavljeni pre otvaranja prodaje.</div>
+      </div>
+    </div>
+
+    <div class="rv" style="background: #1B252F; border-radius: 3px; padding: 32px 30px; display: flex; flex-direction: column; gap: 18px; position: sticky; top: 24px;">
+      <div class="serif" style="font-size: 23px; font-weight: 600; color: #FFFFFF;">Rezervišite bez obaveze</div>
+      <div style="font-size: 13px; line-height: 1.65; color: #C8D5DC;">Upišite se na listu — dobijate planove, cene i pravo prvenstva pre javne prodaje. Upis ne obavezuje na kupovinu.</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <input placeholder="Ime" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(200,213,220,0.3); border-radius: 2px; padding: 13px 14px; font-size: 13px; color: #FFFFFF; outline: none;">
+          <input placeholder="Prezime" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(200,213,220,0.3); border-radius: 2px; padding: 13px 14px; font-size: 13px; color: #FFFFFF; outline: none;">
+        </div>
+        <input placeholder="Telefon" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(200,213,220,0.3); border-radius: 2px; padding: 13px 14px; font-size: 13px; color: #FFFFFF; outline: none;">
+        <input placeholder="Imejl adresa" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(200,213,220,0.3); border-radius: 2px; padding: 13px 14px; font-size: 13px; color: #FFFFFF; outline: none;">
+        <textarea placeholder="Koja veličina jedinice vas zanima? (opciono)" rows="3" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(200,213,220,0.3); border-radius: 2px; padding: 13px 14px; font-size: 13px; color: #FFFFFF; outline: none; resize: vertical;"></textarea>
+      </div>
+      <a href="#" style="display: flex; align-items: center; justify-content: center; background: #D3B574; color: #1B252F; padding: 15px; border-radius: 2px; font-size: 14px; font-weight: 700;">Upišite se na listu</a>
+      <div style="font-size: 11.5px; line-height: 1.6; color: #8e9aa5;">Podatke koristimo isključivo za kontakt oko projekta Vile Seničani 2.</div>
+    </div>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { import('./anim.js').then(m => { this._stop = m.startReveal(); }); }
+  componentWillUnmount() { if (this._stop) this._stop(); }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

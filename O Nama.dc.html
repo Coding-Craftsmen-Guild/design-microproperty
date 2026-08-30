@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; font-family: Montserrat, "Segoe UI", sans-serif; background: #FFFFFF; }
+    a { color: #8B6F46; text-decoration: none; }
+    a:hover { color: #D3B574; }
+    .serif { font-family: Lora, Georgia, serif; }
+    .rv { transition: opacity 0.7s ease, transform 0.7s ease; }
+    .rv.pre { opacity: 0; transform: translateY(26px); }
+      .hamb { display: none; }
+    @media (max-width: 900px) {
+      .navlinks, .navcta, .hstats { display: none !important; }
+      .hamb { display: flex !important; }
+      .pad { padding-left: 22px !important; padding-right: 22px !important; }
+      .rgrid { grid-template-columns: 1fr !important; }
+      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .row { flex-direction: column !important; align-items: flex-start !important; }
+      .bigtitle { font-size: 32px !important; }
+      .midtitle { font-size: 25px !important; }
+      .tblgrid { min-width: 860px; }
+    }
+  </style>
+</helmet>
+
+<div style="background: #FFFFFF; color: #212121;">
+  <dc-import name="Site Header" active="onama" hint-size="100%,72px"></dc-import>
+
+  <div class="pad" style="background: #1B252F; padding: 56px 56px 60px; display: flex; flex-direction: column; gap: 14px;">
+    <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #C8D5DC;">
+      <a href="Home.dc.html" style="color: #C8D5DC;">Početna</a><span>/</span><span style="color: #D3B574; font-weight: 600;">O nama</span>
+    </div>
+    <div class="serif bigtitle" style="font-size: 46px; font-weight: 600; color: #FFFFFF; line-height: 1.1; max-width: 720px;">Gradimo kao za sebe — jer i jesmo iz ovog kraja</div>
+  </div>
+
+  <div class="pad rgrid" style="padding: 72px 56px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 56px; align-items: start;">
+    <div class="rv" style="display: flex; flex-direction: column; gap: 20px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 32px; height: 2px; background: #D3B574;"></div>
+        <div style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8B6F46;">Ko smo</div>
+      </div>
+      <div class="serif" style="font-size: 32px; font-weight: 600; color: #1B252F; line-height: 1.2;">Investitor i graditelj, ne posrednik</div>
+      <div style="font-size: 14.5px; line-height: 1.8; color: #4a5560;">Megiproperty DOO je porodična građevinska kompanija iz Beograda sa korenima u Šumadiji. Kupujemo zemljište, projektujemo, gradimo i prodajemo direktno — bez agencijskih provizija i bez prebacivanja odgovornosti. Kupac za sve razgovara sa jednim sagovornikom: sa nama.</div>
+      <div style="font-size: 14.5px; line-height: 1.8; color: #4a5560;">Iza tima stoje decenije iskustva u visokogradnji — od stambenih zgrada u Beogradu do porodičnih kuća po Šumadiji. Vile Seničani su prvi projekat pod sopstvenim imenom: naselje u kojem će živeti i deo našeg tima.</div>
+      <div class="rgrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; border-top: 1px solid #EEF1F3; padding-top: 24px;">
+        <div><div class="serif" data-count="25" style="font-size: 32px; font-weight: 600; color: #8B6F46;">25</div><div style="font-size: 11.5px; color: #6a7580; margin-top: 4px;">godina iskustva tima u građevini</div></div>
+        <div><div class="serif" data-count="24" style="font-size: 32px; font-weight: 600; color: #8B6F46;">24</div><div style="font-size: 11.5px; color: #6a7580; margin-top: 4px;">jedinice u izgradnji</div></div>
+        <div><div class="serif" data-count="12" style="font-size: 32px; font-weight: 600; color: #8B6F46;">12</div><div style="font-size: 11.5px; color: #6a7580; margin-top: 4px;">objekata pod krovom pre roka</div></div>
+      </div>
+    </div>
+    <div class="rv" style="display: flex; flex-direction: column; gap: 16px;">
+      <img src="assets/about.jpg" alt="Tim Megiproperty na gradilištu" style="width: 100%; height: 340px; object-fit: cover; border-radius: 3px;">
+      <div style="background: #F4F1EA; border-radius: 3px; padding: 22px 24px; display: flex; flex-direction: column; gap: 8px;">
+        <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8B6F46;">Podaci o kompaniji</div>
+        <div style="font-size: 13px; line-height: 1.8; color: #1B252F;">Megiproperty DOO Beograd<br>PIB: 113245876 · Matični broj: 21876543<br>Bulevar Kralja Aleksandra 61, Beograd<br>Prodajno mesto: Seničani bb, Aranđelovac</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="pad" style="background: #1B252F; padding: 68px 56px; display: flex; flex-direction: column; gap: 36px;">
+    <div class="rv serif" style="font-size: 32px; font-weight: 600; color: #FFFFFF;">Na čemu insistiramo</div>
+    <div class="rv rgrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <sc-for list="{{ values }}" as="v" hint-placeholder-count="0">
+        <div style="border: 1px solid rgba(200,213,220,0.2); border-radius: 3px; padding: 26px 24px; display: flex; flex-direction: column; gap: 12px;">
+          <div class="serif midtitle" style="font-size: 34px; font-weight: 500; color: #D3B574; line-height: 1;">{{ v.n }}</div>
+          <div class="serif" style="font-size: 20px; font-weight: 600; color: #FFFFFF;">{{ v.title }}</div>
+          <div style="font-size: 13px; line-height: 1.7; color: #C8D5DC;">{{ v.text }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div class="pad" style="padding: 68px 56px; display: flex; flex-direction: column; gap: 28px;">
+    <div class="rv serif" style="font-size: 30px; font-weight: 600; color: #1B252F;">Vaš sagovornik</div>
+    <div class="rv row" style="border: 1px solid #E4E9EC; border-radius: 3px; padding: 28px 30px; display: flex; justify-content: space-between; align-items: center; gap: 30px; max-width: 760px;">
+      <div style="display: flex; align-items: center; gap: 22px;">
+        <div style="width: 68px; height: 68px; border-radius: 50%; background: #1B252F; display: flex; align-items: center; justify-content: center;">
+          <span class="serif" style="font-size: 24px; font-weight: 600; color: #D3B574;">MJ</span>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <div class="serif" style="font-size: 20px; font-weight: 600; color: #1B252F;">Milan Jovanović</div>
+          <div style="font-size: 12.5px; color: #6a7580;">Direktor prodaje · radnim danima 9–17, subotom 10–14</div>
+        </div>
+      </div>
+      <div style="display: flex; gap: 10px;">
+        <a href="tel:+381604060436" style="display: inline-flex; align-items: center; background: #1B252F; color: #D3B574; padding: 12px 22px; border-radius: 2px; font-size: 12.5px; font-weight: 700; white-space: nowrap;">060 4060 436</a>
+        <a href="mailto:office@megiproperty.rs" style="display: inline-flex; align-items: center; border: 1.5px solid #1B252F; color: #1B252F; padding: 12px 22px; border-radius: 2px; font-size: 12.5px; font-weight: 700; white-space: nowrap;">Pošaljite imejl</a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { import('./anim.js').then(m => { this._stop = m.startReveal(); }); }
+  componentWillUnmount() { if (this._stop) this._stop(); }
+  renderVals() {
+    return {
+      values: [
+        { n: '01', title: 'Rokovi se objavljuju, pa drže', text: 'Svaki milestone je javan u Novostima. Kad kasnimo — kažemo koliko i zašto. Do sada: nula probijenih rokova.' },
+        { n: '02', title: 'Materijal se ne menja posle ugovora', text: 'Specifikacija iz ugovora je specifikacija u kući. Aluminijumska stolarija ostaje aluminijumska.' },
+        { n: '03', title: 'Direktan kontakt, bez call centra', text: 'Jedan broj telefona, jedan sagovornik, odgovor isti dan. I posle useljenja.' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

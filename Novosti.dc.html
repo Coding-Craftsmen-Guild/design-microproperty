@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; font-family: Montserrat, "Segoe UI", sans-serif; background: #FFFFFF; }
+    a { color: #8B6F46; text-decoration: none; }
+    a:hover { color: #D3B574; }
+    .serif { font-family: Lora, Georgia, serif; }
+    .rv { transition: opacity 0.7s ease, transform 0.7s ease; }
+    .rv.pre { opacity: 0; transform: translateY(26px); }
+    .hamb { display: none; }
+    @media (max-width: 900px) {
+      .navlinks, .navcta { display: none !important; }
+      .hamb { display: flex !important; }
+      .pad { padding-left: 22px !important; padding-right: 22px !important; }
+      .rgrid { grid-template-columns: 1fr !important; }
+      .row { flex-direction: column !important; align-items: flex-start !important; }
+      .bigtitle { font-size: 32px !important; }
+      .midtitle { font-size: 25px !important; }
+    }
+  </style>
+</helmet>
+
+<div style="background: #FFFFFF; color: #212121;">
+  <dc-import name="Site Header" active="novosti" hint-size="100%,72px"></dc-import>
+
+  <div class="pad row" style="background: #1B252F; padding: 56px 56px 60px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 14px;">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #C8D5DC;">
+        <a href="Home.dc.html" style="color: #C8D5DC;">Početna</a><span>/</span><span style="color: #D3B574; font-weight: 600;">Novosti</span>
+      </div>
+      <div class="serif bigtitle" style="font-size: 46px; font-weight: 600; color: #FFFFFF; line-height: 1.1;">Novosti</div>
+      <div style="font-size: 15px; line-height: 1.65; color: #C8D5DC; max-width: 580px;">Napredak gradnje, najave novih faza i vesti iz kompanije. Filtrirajte po projektu.</div>
+    </div>
+    <a href="https://www.instagram.com/megiproperty.rs" style="display: inline-flex; align-items: center; gap: 9px; border: 1px solid rgba(211,181,116,0.6); color: #D3B574; padding: 13px 24px; border-radius: 2px; font-size: 13px; font-weight: 700; white-space: nowrap;">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1.3" fill="currentColor" stroke="none"></circle></svg>
+      Dnevno na Instagramu
+    </a>
+  </div>
+
+  <div class="pad" style="border-bottom: 1px solid #E4E9EC; padding: 0 56px; display: flex; gap: 4px; overflow-x: auto;">
+    <sc-for list="{{ filters }}" as="f" hint-placeholder-count="0">
+      <div onClick="{{ f.pick }}" role="button" style="cursor: pointer; white-space: nowrap; padding: 18px 20px; font-size: 13px; font-weight: {{ f.weight }}; color: {{ f.color }}; border-bottom: 2px solid {{ f.line }};">{{ f.label }} <span style="font-size: 11px; color: #9aa5ae;">{{ f.count }}</span></div>
+    </sc-for>
+  </div>
+
+  <div class="pad" style="padding: 56px 56px 24px;">
+    <sc-if value="{{ hasFeatured }}" hint-placeholder-val="{{ false }}">
+      <a class="rv rgrid" href="{{ featured.href }}" style="display: grid; grid-template-columns: 1.15fr 1fr; gap: 40px; align-items: center; color: inherit;">
+        <div role="img" aria-label="{{ featured.title }}" style="position: relative; height: 380px; overflow: hidden; border-radius: 3px; background-color: #E4E9EC; background-size: cover; background-position: center; background-image: url({{ featured.img }});">
+          <div style="position: absolute; top: 16px; left: 16px; background: #D3B574; color: #1B252F; font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; padding: 7px 12px; border-radius: 2px;">Najnovije</div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          <div style="display: flex; align-items: center; gap: 12px; font-size: 11px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">
+            <span style="color: #8B6F46;">{{ featured.project }}</span><span style="color: #C8D5DC;">·</span><span style="color: #6a7580;">{{ featured.category }}</span>
+          </div>
+          <div class="serif midtitle" style="font-size: 34px; font-weight: 600; color: #1B252F; line-height: 1.2;">{{ featured.title }}</div>
+          <div style="font-size: 14.5px; line-height: 1.75; color: #4a5560;">{{ featured.excerpt }}</div>
+          <div style="font-size: 12.5px; color: #6a7580;">{{ featured.date }}</div>
+          <div style="font-size: 13.5px; font-weight: 700; color: #8B6F46; padding-top: 4px;">Pročitajte objavu →</div>
+        </div>
+      </a>
+    </sc-if>
+  </div>
+
+  <div class="pad" style="padding: 32px 56px 84px; display: flex; flex-direction: column; gap: 28px;">
+    <div class="rgrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+      <sc-for list="{{ rest }}" as="p" hint-placeholder-count="0">
+        <a class="rv" href="{{ p.href }}" style="display: flex; flex-direction: column; gap: 14px; color: inherit; border-bottom: 1px solid #E4E9EC; padding-bottom: 22px;">
+          <div role="img" aria-label="{{ p.title }}" style="height: 200px; border-radius: 3px; background-color: #E4E9EC; background-size: cover; background-position: center; background-image: url({{ p.img }});"></div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">
+            <span style="color: #8B6F46;">{{ p.project }}</span><span style="color: #C8D5DC;">·</span><span style="color: #6a7580;">{{ p.category }}</span>
+          </div>
+          <div class="serif" style="font-size: 20px; font-weight: 600; color: #1B252F; line-height: 1.3;">{{ p.title }}</div>
+          <div style="font-size: 13.5px; line-height: 1.7; color: #4a5560;">{{ p.excerpt }}</div>
+          <div style="font-size: 12px; color: #6a7580; margin-top: auto;">{{ p.date }}</div>
+        </a>
+      </sc-for>
+    </div>
+    <sc-if value="{{ isEmpty }}" hint-placeholder-val="{{ false }}">
+      <div style="background: #F4F1EA; border-radius: 3px; padding: 44px; text-align: center; font-size: 14px; color: #4a5560;">Za ovaj projekat još nema objava. Najave pratite na <a href="https://www.instagram.com/megiproperty.rs" style="font-weight: 700;">@megiproperty.rs</a>.</div>
+    </sc-if>
+  </div>
+
+  <div class="pad row" style="background: #F4F1EA; padding: 56px; display: flex; justify-content: space-between; align-items: center; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 8px;">
+      <div class="serif" style="font-size: 26px; font-weight: 600; color: #1B252F;">Novosti u vaš inbox</div>
+      <div style="font-size: 13.5px; line-height: 1.7; color: #4a5560; max-width: 520px;">Jedna poruka mesečno: napredak gradnje, nove jedinice u prodaji i najave novih projekata.</div>
+    </div>
+    <div style="display: flex; gap: 8px;">
+      <input type="email" placeholder="vasa@adresa.rs" style="border: 1px solid #d8d2c4; background: #FFFFFF; border-radius: 2px; padding: 14px 16px; font-size: 13px; font-family: Montserrat, sans-serif; width: 230px;">
+      <button type="button" style="border: none; background: #1B252F; color: #D3B574; border-radius: 2px; padding: 14px 24px; font-size: 13px; font-weight: 700; font-family: Montserrat, sans-serif; cursor: pointer;">Prijavite se</button>
+    </div>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{}">
+class Component extends DCLogic {
+  state = { pick: 'all' };
+  componentDidMount() { import('./anim.js').then(m => { this._stop = m.startReveal(); }); }
+  componentWillUnmount() { if (this._stop) this._stop(); }
+  renderVals() {
+    const posts = [
+      { key: 'vile', project: 'Vile Seničani', category: 'Gradnja', date: '18. avgust 2026', title: 'Unutrašnji radovi u prvoj polovini naselja', excerpt: 'Gletovanje i priprema za završne obloge u objektima 1–6. Podno grejanje položeno i testirano u svih 12 jedinica prve polovine; keramika kreće sledeće nedelje.', img: 'assets/ig4.jpg' },
+      { key: 'vile2', project: 'Vile Seničani 2', category: 'Najava', date: '5. avgust 2026', title: 'Vile Seničani 2 — kreće upis interesovanja', excerpt: 'Druga faza naselja ulazi u pripremu gradnje. Prvi kupci imaju pravo izbora jedinice i uslova plaćanja pre javne prodaje.', img: 'assets/r-b.jpg' },
+      { key: 'firma', project: 'Megiproperty', category: 'Kompanija', date: '22. jul 2026', title: 'Nova kancelarija za prijem kupaca u Aranđelovcu', excerpt: 'Sastanci i pregled specifikacija sada i van gradilišta, uz maketu naselja i uzorke materijala.', img: 'assets/about.jpg' },
+      { key: 'vile', project: 'Vile Seničani', category: 'Gradnja', date: '29. jun 2026', title: 'Fasade završene na osam objekata', excerpt: 'Kamena vuna od 10 cm i silikatni malter u završnom tonu. Preostala četiri objekta dobijaju fasadu do kraja septembra.', img: 'assets/ig2.jpg' },
+      { key: 'vile', project: 'Vile Seničani', category: 'Prodaja', date: '3. jun 2026', title: 'Preostalo 14 od 24 jedinice', excerpt: 'Duplex 3 je u celini rezervisan. Statusi jedinica se ažuriraju nedeljno na stranici projekta.', img: 'assets/r-unit.jpg' },
+      { key: 'vile', project: 'Vile Seničani', category: 'Gradnja', date: '12. maj 2026', title: 'Ugrađena aluminijumska stolarija', excerpt: 'Trostruko staklo u svim jedinicama. Naselje je zatvoreno i spremno za unutrašnje radove nezavisno od vremena.', img: 'assets/ig3.jpg' },
+      { key: 'vile2', project: 'Vile Seničani 2', category: 'Najava', date: '20. april 2026', title: 'Dobijena građevinska dozvola za drugu fazu', excerpt: 'Parcela uz prvu fazu, ista tipologija duplex jedinica sa uređenom okućnicom.', img: 'assets/r-c.jpg' },
+      { key: 'vile', project: 'Vile Seničani', category: 'Gradnja', date: '30. mart 2026', title: 'Gruba gradnja završena na svih 12 objekata', excerpt: 'Konstrukcija, zidovi i krovovi gotovi. Rok koji smo obećali za prvi kvartal — ispunjen sa nedelju dana rezerve.', img: 'assets/ig1.jpg' }
+    ].map(p => ({ ...p, href: 'Novost.dc.html' }));
+
+    const defs = [
+      { id: 'all', label: 'Sve novosti' },
+      { id: 'vile', label: 'Vile Seničani' },
+      { id: 'vile2', label: 'Vile Seničani 2' },
+      { id: 'firma', label: 'Kompanija' }
+    ];
+    const pick = this.state.pick;
+    const filters = defs.map(d => {
+      const n = d.id === 'all' ? posts.length : posts.filter(p => p.key === d.id).length;
+      const on = pick === d.id;
+      return {
+        label: d.label, count: String(n),
+        weight: on ? '700' : '500',
+        color: on ? '#1B252F' : '#6a7580',
+        line: on ? '#D3B574' : 'transparent',
+        pick: () => this.setState({ pick: d.id })
+      };
+    });
+    const list = pick === 'all' ? posts : posts.filter(p => p.key === pick);
+    return {
+      filters,
+      hasFeatured: list.length > 0,
+      featured: list[0] ?? {},
+      rest: list.slice(1),
+      isEmpty: list.length === 0
+    };
+  }
+}
+</script>
+</body>
+</html>

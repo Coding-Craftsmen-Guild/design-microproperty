@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; font-family: Montserrat, "Segoe UI", sans-serif; background: #1B252F; }
+    a { color: #D3B574; text-decoration: none; }
+    a:hover { color: #FFFFFF; }
+    .serif { font-family: Lora, Georgia, serif; }
+    .hamb { display: none; }
+    @media (max-width: 900px) {
+      .navlinks, .navcta { display: none !important; }
+      .hamb { display: flex !important; }
+      .pad { padding-left: 22px !important; padding-right: 22px !important; }
+      .rgrid { grid-template-columns: 1fr !important; }
+      .row { flex-direction: column !important; align-items: flex-start !important; }
+      .errnum { font-size: 96px !important; }
+      .bigtitle { font-size: 30px !important; }
+    }
+  </style>
+</helmet>
+
+<div style="background: #1B252F; color: #FFFFFF; min-height: 100vh; display: flex; flex-direction: column;">
+  <dc-import name="Site Header" active="" hint-size="100%,72px"></dc-import>
+
+  <div class="pad rgrid" style="flex: 1; padding: 84px 56px 96px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 64px; align-items: center; max-width: 1240px;">
+    <div style="display: flex; flex-direction: column; gap: 22px;">
+      <div class="errnum serif" style="font-size: 132px; font-weight: 600; line-height: 0.9; color: #D3B574; letter-spacing: -0.03em;">500</div>
+      <div class="serif bigtitle" style="font-size: 36px; font-weight: 600; line-height: 1.2; color: #FFFFFF; max-width: 520px;">Greška na našoj strani</div>
+      <div style="font-size: 15px; line-height: 1.75; color: #C8D5DC; max-width: 480px;">Stranica trenutno ne može da se prikaže. Radimo na tome — pokušajte ponovo za nekoliko minuta. Ako vam je nešto potrebno odmah, pozovite nas.</div>
+      <div class="row" style="display: flex; gap: 12px; padding-top: 6px;">
+        <a href="tel:+381604060436" style="display: inline-flex; align-items: center; justify-content: center; background: #D3B574; color: #1B252F; padding: 15px 28px; border-radius: 2px; font-size: 13.5px; font-weight: 700;">Pozovite 060 4060 436</a>
+        <a href="Home.dc.html" style="display: inline-flex; align-items: center; justify-content: center; border: 1px solid rgba(200,213,220,0.45); color: #FFFFFF; padding: 15px 28px; border-radius: 2px; font-size: 13.5px; font-weight: 600;">Na početnu</a>
+      </div>
+    </div>
+    <div style="display: flex; flex-direction: column; gap: 18px; border: 1px solid rgba(200,213,220,0.22); border-radius: 3px; padding: 30px;">
+      <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #D3B574;">Dok čekate</div>
+      <div style="font-size: 14px; line-height: 1.75; color: #C8D5DC;">Aktuelne fotografije gradilišta objavljujemo svakodnevno na Instagramu, a upit možete poslati i mejlom.</div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <a href="https://www.instagram.com/megiproperty.rs" style="display: flex; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 600; color: #FFFFFF;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D3B574" stroke-width="1.8"><rect x="2" y="2" width="20" height="20" rx="5"></rect><circle cx="12" cy="12" r="4.2"></circle><circle cx="17.4" cy="6.6" r="1.3" fill="#D3B574" stroke="none"></circle></svg>
+          @megiproperty.rs
+        </a>
+        <a href="mailto:office@megiproperty.rs" style="display: flex; align-items: center; gap: 10px; font-size: 13.5px; font-weight: 600; color: #FFFFFF;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D3B574" stroke-width="1.8"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="M2.5 6 12 13 21.5 6"></path></svg>
+          office@megiproperty.rs
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+</body>
+</html>

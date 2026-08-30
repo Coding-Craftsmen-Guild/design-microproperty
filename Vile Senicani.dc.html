@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; font-family: Montserrat, "Segoe UI", sans-serif; background: #FFFFFF; }
+    a { color: #8B6F46; text-decoration: none; }
+    a:hover { color: #D3B574; }
+    .serif { font-family: Lora, Georgia, serif; }
+    .rv { transition: opacity 0.7s ease, transform 0.7s ease; }
+    .rv.pre { opacity: 0; transform: translateY(26px); }
+      .hamb { display: none; }
+    @media (max-width: 900px) {
+      .navlinks, .navcta, .hstats { display: none !important; }
+      .hamb { display: flex !important; }
+      .pad { padding-left: 22px !important; padding-right: 22px !important; }
+      .rgrid { grid-template-columns: 1fr !important; }
+      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .row { flex-direction: column !important; align-items: flex-start !important; }
+      .bigtitle { font-size: 32px !important; }
+      .midtitle { font-size: 25px !important; }
+      .tblgrid { min-width: 860px; }
+    }
+  </style>
+</helmet>
+
+<div style="background: #FFFFFF; color: #212121;">
+  <dc-import name="Site Header" active="vile" hint-size="100%,72px"></dc-import>
+
+  <!-- HERO -->
+  <div style="position: relative; height: 440px; overflow: hidden;">
+    <img src="assets/r-hero.jpg" alt="Vile Seničani — render naselja" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+    <div style="position: absolute; inset: 0; background: linear-gradient(100deg, rgba(27,37,47,0.92) 0%, rgba(27,37,47,0.7) 50%, rgba(27,37,47,0.2) 100%);"></div>
+    <div class="pad" style="position: absolute; inset: 0; padding: 0 56px; display: flex; flex-direction: column; justify-content: center; gap: 16px;">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #C8D5DC;">
+        <a href="Home.dc.html" style="color: #C8D5DC;">Početna</a><span>/</span><a href="Projekti.dc.html" style="color: #C8D5DC;">Projekti</a><span>/</span><span style="color: #D3B574; font-weight: 600;">Vile Seničani</span>
+      </div>
+      <div class="serif bigtitle" style="font-size: 48px; font-weight: 600; color: #FFFFFF; line-height: 1.1; max-width: 640px;">Vile Seničani</div>
+      <div style="font-size: 16px; line-height: 1.65; color: #C8D5DC; max-width: 560px;">Naselje od 12 objekata sa 24 duplex jedinice u Seničanima kod Aranđelovca. Useljenje: proleće 2027.</div>
+      <div style="display: flex; gap: 24px; padding-top: 6px;">
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #FFFFFF;"><div style="width: 8px; height: 8px; background: #D3B574; border-radius: 50%;"></div>14 dostupno</div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #FFFFFF;"><div style="width: 8px; height: 8px; background: #C8D5DC; border-radius: 50%;"></div>6 rezervisano</div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #FFFFFF;"><div style="width: 8px; height: 8px; background: #5a656f; border-radius: 50%;"></div>4 prodato</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPARISON TABLE -->
+  <div class="pad" style="background: #F4F1EA; padding: 72px 56px; display: flex; flex-direction: column; gap: 32px;">
+    <div class="rv" style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 32px; height: 2px; background: #D3B574;"></div>
+        <div style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8B6F46;">Uporedni pregled</div>
+      </div>
+      <div class="serif midtitle" style="font-size: 34px; font-weight: 600; color: #1B252F;">Četiri tipa, jedna odluka</div>
+    </div>
+    <div class="rv" style="background: #FFFFFF; border: 1px solid #E4E9EC; border-radius: 3px; overflow-x: auto;">
+      <div class="tblgrid" style="display: grid; grid-template-columns: 1.2fr repeat(4, 1fr);">
+        <div style="padding: 18px 22px; border-bottom: 2px solid #1B252F;"></div>
+        <sc-for list="{{ cmpHead }}" as="h" hint-placeholder-count="0">
+          <div style="padding: 18px 16px; border-bottom: 2px solid #1B252F; border-left: 1px solid #EEF1F3; display: flex; flex-direction: column; gap: 4px;">
+            <div class="serif" style="font-size: 18px; font-weight: 600; color: #1B252F;">{{ h.name }}</div>
+            <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: {{ h.stColor }};">{{ h.status }}</div>
+          </div>
+        </sc-for>
+        <sc-for list="{{ cmpRows }}" as="r" hint-placeholder-count="0">
+          <div style="padding: 13px 22px; font-size: 12.5px; color: #6a7580; border-bottom: 1px solid #EEF1F3; background: {{ r.bg }};">{{ r.label }}</div>
+          <div style="padding: 13px 16px; font-size: 13px; font-weight: 600; color: #1B252F; border-bottom: 1px solid #EEF1F3; border-left: 1px solid #EEF1F3; background: {{ r.bg }};">{{ r.d1 }}</div>
+          <div style="padding: 13px 16px; font-size: 13px; font-weight: 600; color: #1B252F; border-bottom: 1px solid #EEF1F3; border-left: 1px solid #EEF1F3; background: {{ r.bg }};">{{ r.d2 }}</div>
+          <div style="padding: 13px 16px; font-size: 13px; font-weight: 600; color: #1B252F; border-bottom: 1px solid #EEF1F3; border-left: 1px solid #EEF1F3; background: {{ r.bg }};">{{ r.d3 }}</div>
+          <div style="padding: 13px 16px; font-size: 13px; font-weight: 600; color: #1B252F; border-bottom: 1px solid #EEF1F3; border-left: 1px solid #EEF1F3; background: {{ r.bg }};">{{ r.d4 }}</div>
+        </sc-for>
+        <div style="padding: 16px 22px;"></div>
+        <sc-for list="{{ cmpCta }}" as="c" hint-placeholder-count="0">
+          <div style="padding: 16px 16px; border-left: 1px solid #EEF1F3;">
+            <a href="{{ c.href }}" style="display: flex; align-items: center; justify-content: center; background: #1B252F; color: #D3B574; padding: 11px 0; border-radius: 2px; font-size: 12px; font-weight: 700;">Pogledajte</a>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+
+  <!-- SPECS -->
+  <div class="pad rgrid" style="padding: 76px 56px; display: grid; grid-template-columns: 1fr 1.1fr; gap: 56px; align-items: start;">
+    <div class="rv" style="display: flex; flex-direction: column; gap: 18px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 32px; height: 2px; background: #D3B574;"></div>
+        <div style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8B6F46;">Standard izgradnje</div>
+      </div>
+      <div class="serif" style="font-size: 32px; font-weight: 600; color: #1B252F; line-height: 1.2;">Materijali koje bismo ugradili i u svoju kuću</div>
+      <div style="font-size: 14.5px; line-height: 1.7; color: #4a5560;">Svaka jedinica se predaje kompletno završena, sa dva parking mesta. Kupci koji žele opremljen prostor mogu angažovati naše projektante pod posebnim uslovima.</div>
+      <img src="assets/r-unit.jpg" alt="Enterijer duplex jedinice — render" style="width: 100%; height: 260px; object-fit: cover; border-radius: 3px; margin-top: 8px;">
+    </div>
+    <div class="rv" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+      <sc-for list="{{ specs }}" as="s" hint-placeholder-count="0">
+        <div style="border: 1px solid #E4E9EC; border-radius: 3px; padding: 18px 18px 16px; display: flex; flex-direction: column; gap: 6px;">
+          <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8B6F46;">{{ s.k }}</div>
+          <div style="font-size: 13.5px; font-weight: 600; color: #1B252F; line-height: 1.5;">{{ s.v }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- FAZE + NOVOSTI -->
+  <div class="pad" style="background: #1B252F; padding: 72px 56px; display: flex; flex-direction: column; gap: 36px;">
+    <div class="rv" style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div style="width: 32px; height: 2px; background: #D3B574;"></div>
+        <div style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #D3B574;">Faze izgradnje</div>
+      </div>
+      <div class="serif" style="font-size: 32px; font-weight: 600; color: #FFFFFF;">Gde je projekat danas</div>
+    </div>
+    <div class="rv rgrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative;">
+      <div style="position: absolute; top: 7px; left: 0; right: 0; height: 2px; background: rgba(200,213,220,0.2);"></div>
+      <sc-for list="{{ phases }}" as="p" hint-placeholder-count="0">
+        <div style="display: flex; flex-direction: column; gap: 12px; position: relative; padding-right: 24px;">
+          <div style="width: 16px; height: 16px; border-radius: 50%; background: {{ p.dot }}; border: 2px solid {{ p.dotBorder }}; box-sizing: border-box;"></div>
+          <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: {{ p.labelColor }};">{{ p.when }}</div>
+          <div class="serif" style="font-size: 17px; font-weight: 600; color: #FFFFFF;">{{ p.title }}</div>
+          <div style="font-size: 12.5px; line-height: 1.6; color: #C8D5DC;">{{ p.text }}</div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <div class="pad" style="padding: 72px 56px 84px; display: flex; flex-direction: column; gap: 32px;">
+    <div class="rv row" style="display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 2px; background: #D3B574;"></div>
+          <div style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8B6F46;">Novosti</div>
+        </div>
+        <div class="serif midtitle" style="font-size: 34px; font-weight: 600; color: #1B252F;">Novosti sa gradilišta</div>
+      </div>
+      <a href="Novosti.dc.html" style="display: inline-flex; align-items: center; gap: 8px; font-size: 13.5px; font-weight: 700; color: #8B6F46;">Sve novosti o projektu →</a>
+    </div>
+    <div class="rv rgrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;">
+      <sc-for list="{{ news }}" as="n" hint-placeholder-count="0">
+        <a href="Novost.dc.html" style="display: flex; flex-direction: column; gap: 14px; color: inherit; border-bottom: 1px solid #E4E9EC; padding-bottom: 22px;">
+          <div role="img" aria-label="{{ n.title }}" style="height: 190px; border-radius: 3px; background-color: #E4E9EC; background-size: cover; background-position: center; background-image: url({{ n.img }});"></div>
+          <div style="display: flex; align-items: center; gap: 10px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;">
+            <span style="color: #8B6F46;">{{ n.category }}</span><span style="color: #C8D5DC;">·</span><span style="color: #6a7580;">{{ n.date }}</span>
+          </div>
+          <div class="serif" style="font-size: 20px; font-weight: 600; color: #1B252F; line-height: 1.3;">{{ n.title }}</div>
+          <div style="font-size: 13.5px; line-height: 1.7; color: #4a5560;">{{ n.excerpt }}</div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { import('./anim.js').then(m => { this._stop = m.startReveal(); }); }
+  componentWillUnmount() { if (this._stop) this._stop(); }
+  renderVals() {
+    return {
+      cmpHead: [
+        { name: 'Duplex 1', status: 'Dostupno', stColor: '#8B6F46' },
+        { name: 'Duplex 2', status: 'Dostupno', stColor: '#8B6F46' },
+        { name: 'Duplex 3', status: 'Rezervisano', stColor: '#6a7580' },
+        { name: 'Duplex 4', status: 'Dostupno', stColor: '#8B6F46' }
+      ],
+      cmpRows: [
+        { label: 'Ukupna površina', d1: '162,92 m²', d2: '163,93 m²', d3: '108 m²', d4: '110 m²', bg: '#FFFFFF' },
+        { label: 'Struktura', d1: 'Petosobni', d2: 'Petosobni', d3: 'Četvorosobni', d4: 'Četvorosobni', bg: '#FAFBFC' },
+        { label: 'Spavaće sobe', d1: '4', d2: '4', d3: '3', d4: '3', bg: '#FFFFFF' },
+        { label: 'Kupatila', d1: '3', d2: '3', d3: '2', d4: '2', bg: '#FAFBFC' },
+        { label: 'Terase', d1: '20 m² + 45 m² krovna', d2: '20 m² + 45 m² krovna', d3: '2 terase', d4: '2 terase', bg: '#FFFFFF' },
+        { label: 'Parking', d1: '2 mesta', d2: '2 mesta', d3: '2 mesta', d4: '2 mesta', bg: '#FAFBFC' },
+        { label: 'Grejanje', d1: 'Toplotna pumpa', d2: 'Toplotna pumpa', d3: 'Toplotna pumpa', d4: 'Toplotna pumpa', bg: '#FFFFFF' },
+        { label: 'Cena', d1: 'Na upit', d2: 'Na upit', d3: 'Na upit', d4: 'Na upit', bg: '#FAFBFC' }
+      ],
+      cmpCta: [
+        { href: 'Duplex 1.dc.html' }, { href: 'Duplex 1.dc.html' }, { href: 'Duplex 1.dc.html' }, { href: 'Duplex 1.dc.html' }
+      ],
+      specs: [
+        { k: 'Konstrukcija', v: 'Armirani beton + termo blok 25 cm' },
+        { k: 'Fasada', v: 'Kamena vuna 10 cm, silikatni malter' },
+        { k: 'Stolarija', v: 'Aluminijum, trostruko staklo' },
+        { k: 'Podovi', v: 'Hrastov parket, granitna keramika' },
+        { k: 'Grejanje', v: 'Toplotna pumpa vazduh–voda, podno' },
+        { k: 'Energetski razred', v: 'B — niska potrošnja' },
+        { k: 'Bezbednost', v: 'Video interfon, alarmna priprema' },
+        { k: 'Okućnica', v: 'Uređeno dvorište, 2 parking mesta' }
+      ],
+      news: [
+        { category: 'Gradnja', date: '18. avgust 2026', title: 'Unutrašnji radovi u prvoj polovini naselja', excerpt: 'Gletovanje i priprema za završne obloge u objektima 1–6, podno grejanje testirano u svih 12 jedinica.', img: 'assets/ig4.jpg' },
+        { category: 'Prodaja', date: '3. jun 2026', title: 'Preostalo 14 od 24 jedinice', excerpt: 'Duplex 3 je u celini rezervisan. Statusi jedinica se ažuriraju nedeljno.', img: 'assets/r-unit.jpg' },
+        { category: 'Gradnja', date: '29. jun 2026', title: 'Fasade završene na osam objekata', excerpt: 'Kamena vuna 10 cm i silikatni malter u završnom tonu; preostala četiri objekta do kraja septembra.', img: 'assets/ig2.jpg' }
+      ],
+      phases: [
+        { when: 'Završeno · mart 2026', title: 'Gruba gradnja', text: 'Konstrukcija svih 12 objekata završena, krovovi pokriveni.', dot: '#D3B574', dotBorder: '#D3B574', labelColor: '#D3B574' },
+        { when: 'Završeno · jun 2026', title: 'Stolarija i fasade', text: 'Ugrađena aluminijumska stolarija, fasade na 8 objekata.', dot: '#D3B574', dotBorder: '#D3B574', labelColor: '#D3B574' },
+        { when: 'U toku · avgust 2026', title: 'Unutrašnji radovi', text: 'Instalacije, gletovanje i podne obloge u prvoj polovini naselja.', dot: '#1B252F', dotBorder: '#D3B574', labelColor: '#FFFFFF' },
+        { when: 'Planirano · proleće 2027', title: 'Useljenje', text: 'Tehnički prijem, uređenje zajedničkih površina i primopredaja.', dot: '#1B252F', dotBorder: 'rgba(200,213,220,0.4)', labelColor: '#8e9aa5' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

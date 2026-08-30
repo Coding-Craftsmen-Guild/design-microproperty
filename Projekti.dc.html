@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; font-family: Montserrat, "Segoe UI", sans-serif; background: #FFFFFF; }
+    a { color: #8B6F46; text-decoration: none; }
+    a:hover { color: #D3B574; }
+    .serif { font-family: Lora, Georgia, serif; }
+    .rv { transition: opacity 0.7s ease, transform 0.7s ease; }
+    .rv.pre { opacity: 0; transform: translateY(26px); }
+      .hamb { display: none; }
+    @media (max-width: 900px) {
+      .navlinks, .navcta, .hstats { display: none !important; }
+      .hamb { display: flex !important; }
+      .pad { padding-left: 22px !important; padding-right: 22px !important; }
+      .rgrid { grid-template-columns: 1fr !important; }
+      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .row { flex-direction: column !important; align-items: flex-start !important; }
+      .bigtitle { font-size: 32px !important; }
+      .midtitle { font-size: 25px !important; }
+      .tblgrid { min-width: 860px; }
+    }
+  </style>
+</helmet>
+
+<div style="background: #FFFFFF; color: #212121;">
+  <dc-import name="Site Header" active="projekti" hint-size="100%,72px"></dc-import>
+
+  <div class="pad" style="background: #1B252F; padding: 56px 56px 60px; display: flex; flex-direction: column; gap: 14px;">
+    <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #C8D5DC;">
+      <a href="Home.dc.html" style="color: #C8D5DC;">Početna</a><span>/</span><span style="color: #D3B574; font-weight: 600;">Projekti</span>
+    </div>
+    <div class="serif bigtitle" style="font-size: 46px; font-weight: 600; color: #FFFFFF; line-height: 1.1;">Naši projekti</div>
+    <div style="font-size: 15px; line-height: 1.65; color: #C8D5DC; max-width: 620px;">Gradimo naselja porodičnih kuća u Šumadiji — od kupovine zemljišta do ključa u ruci. Jedan projekat je u završnoj fazi, sledeći se priprema.</div>
+  </div>
+
+  <div class="pad" style="padding: 64px 56px 76px; display: flex; flex-direction: column; gap: 32px;">
+    <!-- VS1 -->
+    <div class="rv rgrid" style="display: grid; grid-template-columns: 1.2fr 1fr; border: 1px solid #E4E9EC; border-radius: 3px; overflow: hidden;">
+      <div style="position: relative; min-height: 380px;">
+        <img src="assets/r-hero.jpg" alt="Vile Seničani — render naselja" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; top: 18px; left: 18px; background: #D3B574; color: #1B252F; font-size: 10.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 7px 13px; border-radius: 2px;">U izgradnji · useljenje proleće 2027</div>
+      </div>
+      <div style="padding: 38px 36px; display: flex; flex-direction: column; gap: 18px;">
+        <div class="serif" style="font-size: 30px; font-weight: 600; color: #1B252F;">Vile Seničani</div>
+        <div style="font-size: 14px; line-height: 1.7; color: #4a5560;">Naselje od 12 objekata sa 24 duplex jedinice od 108 do 164 m², na obroncima Bukulje kod Aranđelovca. Svaka jedinica sa dva parking mesta i uređenim dvorištem.</div>
+        <div class="rgrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; border-top: 1px solid #EEF1F3; border-bottom: 1px solid #EEF1F3; padding: 16px 0;">
+          <div><div class="serif" style="font-size: 22px; font-weight: 600; color: #1B252F;">24</div><div style="font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.07em; color: #6a7580; margin-top: 3px;">jedinice</div></div>
+          <div><div class="serif" style="font-size: 22px; font-weight: 600; color: #8B6F46;">14</div><div style="font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.07em; color: #6a7580; margin-top: 3px;">dostupno</div></div>
+          <div><div class="serif" style="font-size: 22px; font-weight: 600; color: #1B252F;">108–164</div><div style="font-size: 10.5px; text-transform: uppercase; letter-spacing: 0.07em; color: #6a7580; margin-top: 3px;">m²</div></div>
+        </div>
+        <div style="display: flex; gap: 12px; margin-top: auto;">
+          <a href="Vile Senicani.dc.html" style="flex: 1; display: flex; align-items: center; justify-content: center; gap: 9px; background: #1B252F; color: #D3B574; padding: 14px 0; border-radius: 2px; font-size: 13px; font-weight: 700;">Pogledajte projekat</a>
+          <a href="tel:+381604060436" style="flex: 1; display: flex; align-items: center; justify-content: center; border: 1.5px solid #1B252F; color: #1B252F; padding: 14px 0; border-radius: 2px; font-size: 13px; font-weight: 700;">Pozovite</a>
+        </div>
+      </div>
+    </div>
+    <!-- VS2 -->
+    <div class="rv rgrid" style="display: grid; grid-template-columns: 1fr 1.2fr; border: 1px solid #E4E9EC; border-radius: 3px; overflow: hidden;">
+      <div style="padding: 38px 36px; display: flex; flex-direction: column; gap: 18px;">
+        <div class="serif" style="font-size: 30px; font-weight: 600; color: #1B252F;">Vile Seničani 2</div>
+        <div style="font-size: 14px; line-height: 1.7; color: #4a5560;">Druga faza naselja — sa garažom uz svaku jedinicu i ograđenim dvorištem uz dnevni boravak. Rana rezervacija nosi povoljnije uslove i mogućnost praćenja gradnje sopstvene kuće.</div>
+        <div style="display: flex; flex-direction: column; gap: 10px; border-top: 1px solid #EEF1F3; padding-top: 16px;">
+          <div style="display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; color: #1B252F;"><div style="width: 7px; height: 7px; background: #D3B574; border-radius: 50%;"></div>Garaža uz svaku jedinicu</div>
+          <div style="display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; color: #1B252F;"><div style="width: 7px; height: 7px; background: #D3B574; border-radius: 50%;"></div>Ograđeno dvorište uz dnevni boravak</div>
+          <div style="display: flex; align-items: center; gap: 9px; font-size: 13px; font-weight: 600; color: #1B252F;"><div style="width: 7px; height: 7px; background: #D3B574; border-radius: 50%;"></div>Povoljniji uslovi za rane rezervacije</div>
+        </div>
+        <div style="display: flex; gap: 12px; margin-top: auto;">
+          <a href="Vile Senicani 2.dc.html" style="flex: 1; display: flex; align-items: center; justify-content: center; background: #D3B574; color: #1B252F; padding: 14px 0; border-radius: 2px; font-size: 13px; font-weight: 700;">Rezervišite jedinicu</a>
+          <a href="Kontakt.dc.html" style="flex: 1; display: flex; align-items: center; justify-content: center; border: 1.5px solid #1B252F; color: #1B252F; padding: 14px 0; border-radius: 2px; font-size: 13px; font-weight: 700;">Zatražite ponudu</a>
+        </div>
+      </div>
+      <div style="position: relative; min-height: 380px;">
+        <img src="assets/r-c.jpg" alt="Vile Seničani 2 — render" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;">
+        <div style="position: absolute; top: 18px; right: 18px; background: #1B252F; color: #D3B574; font-size: 10.5px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; padding: 7px 13px; border-radius: 2px;">U pripremi · rezervacije otvorene</div>
+      </div>
+    </div>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  componentDidMount() { import('./anim.js').then(m => { this._stop = m.startReveal(); }); }
+  componentWillUnmount() { if (this._stop) this._stop(); }
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

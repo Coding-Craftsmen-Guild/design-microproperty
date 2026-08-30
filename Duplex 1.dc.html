@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600&family=Montserrat:wght@400;500;600;700&display=swap">
+  <style>
+    body { margin: 0; font-family: Montserrat, "Segoe UI", sans-serif; background: #FFFFFF; }
+    a { color: #8B6F46; text-decoration: none; }
+    a:hover { color: #D3B574; }
+    .serif { font-family: Lora, Georgia, serif; }
+    .rv { transition: opacity 0.7s ease, transform 0.7s ease; }
+    .rv.pre { opacity: 0; transform: translateY(26px); }
+    input, textarea, select { font-family: Montserrat, sans-serif; }
+      .hamb { display: none; }
+    @media (max-width: 900px) {
+      .navlinks, .navcta, .hstats { display: none !important; }
+      .hamb { display: flex !important; }
+      .pad { padding-left: 22px !important; padding-right: 22px !important; }
+      .rgrid { grid-template-columns: 1fr !important; }
+      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .row { flex-direction: column !important; align-items: flex-start !important; }
+      .bigtitle { font-size: 32px !important; }
+      .midtitle { font-size: 25px !important; }
+      .tblgrid { min-width: 860px; }
+    }
+  </style>
+</helmet>
+
+<div style="background: #FFFFFF; color: #212121;">
+  <dc-import name="Site Header" active="vile" hint-size="100%,72px"></dc-import>
+
+  <!-- TITLE BAR -->
+  <div class="pad row" style="background: #1B252F; padding: 40px 56px 44px; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px;">
+    <div style="display: flex; flex-direction: column; gap: 12px;">
+      <div style="display: flex; align-items: center; gap: 10px; font-size: 12px; color: #C8D5DC;">
+        <a href="Home.dc.html" style="color: #C8D5DC;">Početna</a><span>/</span><a href="Projekti.dc.html" style="color: #C8D5DC;">Projekti</a><span>/</span><a href="Vile Senicani.dc.html" style="color: #C8D5DC;">Vile Seničani</a><span>/</span><span style="color: #D3B574; font-weight: 600;">Duplex 1</span>
+      </div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <div class="serif bigtitle" style="font-size: 42px; font-weight: 600; color: #FFFFFF; line-height: 1;">Duplex 1</div>
+        <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.09em; text-transform: uppercase; color: #D3B574; border: 1px solid rgba(211,181,116,0.6); padding: 6px 12px; border-radius: 2px;">Dostupno</div>
+      </div>
+      <div style="font-size: 14px; color: #C8D5DC;">Petosobna duplex jedinica · Vile Seničani, Aranđelovac</div>
+    </div>
+    <div style="display: flex; gap: 30px; align-items: flex-end;">
+      <div><div class="serif" style="font-size: 26px; font-weight: 600; color: #FFFFFF; line-height: 1;">162,92 m²</div><div style="font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: #C8D5DC; margin-top: 6px;">ukupna površina</div></div>
+      <div style="width: 1px; height: 40px; background: rgba(200,213,220,0.25);"></div>
+      <div><div class="serif" style="font-size: 26px; font-weight: 600; color: #D3B574; line-height: 1;">Na upit</div><div style="font-size: 10.5px; letter-spacing: 0.08em; text-transform: uppercase; color: #C8D5DC; margin-top: 6px;">cena</div></div>
+    </div>
+  </div>
+
+  <!-- GALLERY + PLANS TABS -->
+  <div class="pad" style="padding: 48px 56px 0; display: flex; flex-direction: column; gap: 0;">
+    <div style="display: flex; gap: 0; border-bottom: 2px solid #1B252F;">
+      <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="0">
+        <div onClick="{{ t.select }}" role="button" style="cursor: pointer; padding: 13px 26px; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; color: {{ t.color }}; background: {{ t.bg }}; border-radius: 3px 3px 0 0;">{{ t.label }}</div>
+      </sc-for>
+    </div>
+    <div style="position: relative; background: #F4F1EA; border: 1px solid #E4E9EC; border-top: none;">
+      <img src="{{ tabImg }}" alt="{{ tabAlt }}" style="width: 100%; height: 560px; object-fit: {{ tabFit }}; display: block; background: #FFFFFF;">
+      <a href="#" style="position: absolute; right: 20px; bottom: 20px; display: inline-flex; align-items: center; gap: 9px; background: #1B252F; color: #D3B574; padding: 12px 20px; border-radius: 2px; font-size: 12.5px; font-weight: 700;">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
+        Preuzmite PDF specifikaciju
+      </a>
+    </div>
+  </div>
+
+  <!-- SPECS + ROOMS -->
+  <div class="pad rgrid" style="padding: 64px 56px; display: grid; grid-template-columns: 1.15fr 1fr; gap: 56px; align-items: start;">
+    <div class="rv" style="display: flex; flex-direction: column; gap: 26px;">
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <div style="width: 32px; height: 2px; background: #D3B574;"></div>
+          <div style="font-size: 11.5px; font-weight: 600; letter-spacing: 0.16em; text-transform: uppercase; color: #8B6F46;">Specifikacija</div>
+        </div>
+        <div class="serif" style="font-size: 32px; font-weight: 600; color: #1B252F;">Prostor za celu porodicu, na dva nivoa</div>
+        <div style="font-size: 14.5px; line-height: 1.7; color: #4a5560;">Prizemlje objedinjuje dnevni boravak, trpezariju i kuhinju sa izlazom na terasu od 20 m². Sprat nosi četiri spavaće sobe, a krovna terasa od 45 m² gleda na Bukulju.</div>
+      </div>
+      <div style="display: flex; flex-direction: column;">
+        <sc-for list="{{ specRows }}" as="r" hint-placeholder-count="0">
+          <div style="display: flex; justify-content: space-between; padding: 13px 4px; border-bottom: 1px solid #EEF1F3; font-size: 13.5px;">
+            <span style="color: #6a7580;">{{ r.k }}</span>
+            <span style="font-weight: 600; color: #1B252F; text-align: right;">{{ r.v }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+        <div style="background: #F4F1EA; border-radius: 3px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
+          <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8B6F46;">Prizemlje · 81,4 m²</div>
+          <div style="font-size: 13px; line-height: 1.6; color: #1B252F;">Dnevni boravak, kuhinja, trpezarija, kupatilo, terasa 20 m²</div>
+        </div>
+        <div style="background: #F4F1EA; border-radius: 3px; padding: 18px 20px; display: flex; flex-direction: column; gap: 6px;">
+          <div style="font-size: 10.5px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; color: #8B6F46;">Sprat · 81,5 m²</div>
+          <div style="font-size: 13px; line-height: 1.6; color: #1B252F;">4 spavaće sobe, 2 kupatila, garderober, krovna terasa 45 m²</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENQUIRY FORM -->
+    <div class="rv" style="background: #1B252F; border-radius: 3px; padding: 32px 30px; display: flex; flex-direction: column; gap: 18px; position: sticky; top: 24px;">
+      <div class="serif" style="font-size: 23px; font-weight: 600; color: #FFFFFF;">Zainteresovani ste za Duplex 1?</div>
+      <div style="font-size: 13px; line-height: 1.65; color: #C8D5DC;">Ostavite podatke i javljamo se isti dan sa cenom, planovima i terminom obilaska.</div>
+      <div style="display: flex; flex-direction: column; gap: 12px;">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+          <input placeholder="Ime" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(200,213,220,0.3); border-radius: 2px; padding: 13px 14px; font-size: 13px; color: #FFFFFF; outline: none;">
+          <input placeholder="Prezime" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(200,213,220,0.3); border-radius: 2px; padding: 13px 14px; font-size: 13px; color: #FFFFFF; outline: none;">
+        </div>
+        <input placeholder="Telefon" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(200,213,220,0.3); border-radius: 2px; padding: 13px 14px; font-size: 13px; color: #FFFFFF; outline: none;">
+        <input placeholder="Imejl adresa" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(200,213,220,0.3); border-radius: 2px; padding: 13px 14px; font-size: 13px; color: #FFFFFF; outline: none;">
+        <div style="background: rgba(211,181,116,0.12); border: 1px solid rgba(211,181,116,0.4); border-radius: 2px; padding: 12px 14px; font-size: 12.5px; color: #D3B574; font-weight: 600;">Jedinica: Duplex 1 · Vile Seničani</div>
+        <textarea placeholder="Poruka (opciono)" rows="3" style="background: rgba(255,255,255,0.06); border: 1px solid rgba(200,213,220,0.3); border-radius: 2px; padding: 13px 14px; font-size: 13px; color: #FFFFFF; outline: none; resize: vertical;"></textarea>
+      </div>
+      <div style="display: flex; flex-direction: column; gap: 10px;">
+        <a href="#" style="display: flex; align-items: center; justify-content: center; background: #D3B574; color: #1B252F; padding: 15px; border-radius: 2px; font-size: 14px; font-weight: 700;">Zatražite ponudu</a>
+        <a href="tel:+381604060436" style="display: flex; align-items: center; justify-content: center; gap: 8px; border: 1px solid rgba(200,213,220,0.4); color: #FFFFFF; padding: 13px; border-radius: 2px; font-size: 13.5px; font-weight: 600;">ili pozovite 060 4060 436</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- OTHER UNITS -->
+  <div class="pad" style="background: #F4F1EA; padding: 60px 56px 72px; display: flex; flex-direction: column; gap: 28px;">
+    <div class="rv serif" style="font-size: 28px; font-weight: 600; color: #1B252F;">Ostale jedinice u naselju</div>
+    <div class="rv rgrid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+      <sc-for list="{{ others }}" as="u" hint-placeholder-count="0">
+        <a href="{{ u.href }}" style="background: #FFFFFF; border: 1px solid #E4E9EC; display: flex; flex-direction: column; color: inherit;" style-hover="box-shadow: 0 12px 30px rgba(27,37,47,0.12);">
+          <img src="{{ u.img }}" alt="{{ u.alt }}" style="width: 100%; height: 150px; object-fit: cover; display: block;">
+          <div style="padding: 16px 18px 18px; display: flex; justify-content: space-between; align-items: center;">
+            <div>
+              <div class="serif" style="font-size: 18px; font-weight: 600; color: #1B252F;">{{ u.name }}</div>
+              <div style="font-size: 12px; color: #6a7580; margin-top: 3px;">{{ u.meta }}</div>
+            </div>
+            <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.07em; text-transform: uppercase; color: {{ u.stColor }};">{{ u.status }}</div>
+          </div>
+        </a>
+      </sc-for>
+    </div>
+  </div>
+
+  <dc-import name="Site Footer" hint-size="100%,560px"></dc-import>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { tab: 0 };
+  componentDidMount() { import('./anim.js').then(m => { this._stop = m.startReveal(); }); }
+  componentWillUnmount() { if (this._stop) this._stop(); }
+  renderVals() {
+    const defs = [
+      { label: 'Galerija', img: 'assets/r-unit.jpg', alt: 'Duplex 1 — render objekta', fit: 'cover' },
+      { label: 'Osnova prizemlja', img: 'assets/plan-ground.jpg', alt: 'Duplex 1 — osnova prizemlja', fit: 'contain' },
+      { label: 'Osnova sprata', img: 'assets/plan-floor.jpg', alt: 'Duplex 1 — osnova sprata', fit: 'contain' },
+      { label: 'Krovna terasa', img: 'assets/plan-roof.jpg', alt: 'Duplex 1 — osnova krovne terase', fit: 'contain' }
+    ];
+    const t = this.state.tab;
+    return {
+      tabs: defs.map((d, i) => ({
+        label: d.label,
+        color: i === t ? '#D3B574' : '#1B252F',
+        bg: i === t ? '#1B252F' : 'transparent',
+        select: () => this.setState({ tab: i })
+      })),
+      tabImg: defs[t].img, tabAlt: defs[t].alt, tabFit: defs[t].fit,
+      specRows: [
+        { k: 'Ukupna površina', v: '162,92 m²' },
+        { k: 'Struktura', v: 'Petosobni duplex' },
+        { k: 'Spavaće sobe', v: '4' },
+        { k: 'Kupatila', v: '3' },
+        { k: 'Terase', v: '20 m² + 45 m² krovna' },
+        { k: 'Parking', v: '2 mesta uz objekat' },
+        { k: 'Okućnica', v: 'Uređeno dvorište' },
+        { k: 'Grejanje', v: 'Toplotna pumpa vazduh–voda, podno' },
+        { k: 'Stolarija', v: 'Aluminijum, trostruko staklo' },
+        { k: 'Podovi', v: 'Hrastov parket, granitna keramika' },
+        { k: 'Energetski razred', v: 'B' },
+        { k: 'Useljenje', v: 'Proleće 2027' },
+        { k: 'Cena', v: 'Na upit' }
+      ],
+      others: [
+        { name: 'Duplex 2', meta: '163,93 m² · petosobni', status: 'Dostupno', stColor: '#8B6F46', img: 'assets/r-b.jpg', alt: 'Duplex 2 — render', href: 'Duplex 1.dc.html' },
+        { name: 'Duplex 3', meta: '108 m² · četvorosobni', status: 'Rezervisano', stColor: '#6a7580', img: 'assets/r-c.jpg', alt: 'Duplex 3 — render', href: 'Duplex 1.dc.html' },
+        { name: 'Duplex 4', meta: '110 m² · četvorosobni', status: 'Dostupno', stColor: '#8B6F46', img: 'assets/p1.jpg', alt: 'Duplex 4 — render', href: 'Duplex 1.dc.html' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

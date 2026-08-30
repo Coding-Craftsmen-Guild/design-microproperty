@@ -1,0 +1,7 @@
+# Commercial documents — kept in the private repo, never uploaded to a
+# Vercel deployment, because deployment URLs are publicly reachable.
+ponuda.pdf
+ponuda.md
+
+# Canvas editor artifact
+.thumbnail
