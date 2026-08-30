@@ -20,8 +20,9 @@ Twelve page designs plus two shared components, covering the live project *Vile 
 | `Kontakt.dc.html` | Kontakt |
 | `404.dc.html` / `500.dc.html` | Sistemske stranice |
 | `Site Header.dc.html` / `Site Footer.dc.html` | Deljene komponente |
+| `index.html` | Entry point — redirects to `Home.dc.html` |
 
-`ponuda.md` holds the offer spec — brand palette, typography scale, sitemap and per-page section tables — mapped to what these artboards actually contain.
+The offer spec — brand palette, typography scale, sitemap and per-page section tables, mapped to what these artboards actually contain — lives outside this repo, in the parent project folder.
 
 ## Brand
 
@@ -47,7 +48,7 @@ npx serve .
 python3 -m http.server 8000
 ```
 
-Then open http://localhost:3000/Home.dc.html (or `:8000`).
+Then open http://localhost:3000 — `index.html` forwards to the homepage.
 
 ## Deployment
 
@@ -55,7 +56,7 @@ Zero build step. See [DEPLOY.md](DEPLOY.md).
 
 `vercel.json` maps `/` to the homepage, adds single-segment clean URLs (`/kontakt`, `/lokacija`, `/vile-senicani`, …) and serves `404.dc.html` for anything unmatched.
 
-`.vercelignore` keeps `ponuda.pdf` and `ponuda.md` out of the deployment — Vercel deployment URLs are public, and those documents carry pricing and payment terms.
+`.vercelignore` keeps the commercial documents and the canvas thumbnail out of the deployment — Vercel deployment URLs are public by default.
 
 ## Notes for Implementation
 

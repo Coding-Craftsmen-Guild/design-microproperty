@@ -20,13 +20,15 @@ npx vercel --prod
 | `/pocetna`, `/projekti`, `/vile-senicani`, `/vile-senicani-2`, `/duplex-1`, `/lokacija`, `/novosti`, `/novost`, `/o-nama`, `/kontakt`, `/500` | the matching artboard |
 | anything else | `404.dc.html`, with a real 404 status |
 
+There is also a real `index.html` at the root. On Vercel the `/` route fires first, so it is never served — it exists so the site still opens correctly on hosts that ignore `vercel.json` (Netlify, GitHub Pages, `npx serve`), where it redirects to `Home.dc.html`.
+
 The `.dc.html` filenames also resolve directly (`/Kontakt.dc.html`), which is how the in-page navigation links between artboards. The clean URLs are aliases on top of that.
 
 Clean URLs are deliberately **single-segment**. A nested path like `/novosti/objava` would break the relative `./support.js` and `./Site Header.dc.html` lookups, since the runtime resolves components against the current directory.
 
 ### Deployment privacy
 
-`.vercelignore` excludes `ponuda.pdf` and `ponuda.md` from the upload. Vercel deployment URLs are publicly reachable by default, and those two files carry pricing, payment terms and team names. If you want the whole preview private, enable **Deployment Protection** in the Vercel project settings (Settings → Deployment Protection → Vercel Authentication) — then only logged-in team members can open the URL.
+`.vercelignore` excludes the commercial documents (kept outside this repo) and the canvas thumbnail from the upload. Vercel deployment URLs are publicly reachable by default. If you want the whole preview private, enable **Deployment Protection** in the Vercel project settings (Settings → Deployment Protection → Vercel Authentication) — then only logged-in team members can open the URL.
 
 ## Netlify
 
