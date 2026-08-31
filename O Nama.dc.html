@@ -21,8 +21,9 @@
       .navlinks, .navcta, .hstats { display: none !important; }
       .hamb { display: flex !important; }
       .pad { padding-left: 22px !important; padding-right: 22px !important; }
-      .rgrid { grid-template-columns: 1fr !important; }
-      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .rgrid { grid-template-columns: minmax(0, 1fr) !important; }
+      input, textarea, select { min-width: 0; width: 100%; box-sizing: border-box; }
+      .rgrid2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
       .row { flex-direction: column !important; align-items: flex-start !important; }
       .bigtitle { font-size: 32px !important; }
       .midtitle { font-size: 25px !important; }
@@ -90,7 +91,7 @@
           <div style="font-size: 12.5px; color: #6a7580;">Direktor prodaje · radnim danima 9–17, subotom 10–14</div>
         </div>
       </div>
-      <div style="display: flex; gap: 10px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 10px;">
         <a href="tel:+381604060436" style="display: inline-flex; align-items: center; background: #1B252F; color: #D3B574; padding: 12px 22px; border-radius: 2px; font-size: 12.5px; font-weight: 700; white-space: nowrap;">060 4060 436</a>
         <a href="mailto:office@megiproperty.rs" style="display: inline-flex; align-items: center; border: 1.5px solid #1B252F; color: #1B252F; padding: 12px 22px; border-radius: 2px; font-size: 12.5px; font-weight: 700; white-space: nowrap;">Pošaljite imejl</a>
       </div>

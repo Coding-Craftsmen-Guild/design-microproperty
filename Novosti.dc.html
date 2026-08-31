@@ -21,7 +21,9 @@
       .navlinks, .navcta { display: none !important; }
       .hamb { display: flex !important; }
       .pad { padding-left: 22px !important; padding-right: 22px !important; }
-      .rgrid { grid-template-columns: 1fr !important; }
+      .rgrid { grid-template-columns: minmax(0, 1fr) !important; }
+      input, textarea, select { min-width: 0; width: 100%; box-sizing: border-box; }
+      .rgrid2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
       .row { flex-direction: column !important; align-items: flex-start !important; }
       .bigtitle { font-size: 32px !important; }
       .midtitle { font-size: 25px !important; }
@@ -95,8 +97,8 @@
       <div class="serif" style="font-size: 26px; font-weight: 600; color: #1B252F;">Novosti u vaš inbox</div>
       <div style="font-size: 13.5px; line-height: 1.7; color: #4a5560; max-width: 520px;">Jedna poruka mesečno: napredak gradnje, nove jedinice u prodaji i najave novih projekata.</div>
     </div>
-    <div style="display: flex; gap: 8px;">
-      <input type="email" placeholder="vasa@adresa.rs" style="border: 1px solid #d8d2c4; background: #FFFFFF; border-radius: 2px; padding: 14px 16px; font-size: 13px; font-family: Montserrat, sans-serif; width: 230px;">
+    <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+      <input type="email" placeholder="vasa@adresa.rs" style="border: 1px solid #d8d2c4; background: #FFFFFF; border-radius: 2px; padding: 14px 16px; font-size: 13px; font-family: Montserrat, sans-serif; width: 230px; max-width: 100%;">
       <button type="button" style="border: none; background: #1B252F; color: #D3B574; border-radius: 2px; padding: 14px 24px; font-size: 13px; font-weight: 700; font-family: Montserrat, sans-serif; cursor: pointer;">Prijavite se</button>
     </div>
   </div>

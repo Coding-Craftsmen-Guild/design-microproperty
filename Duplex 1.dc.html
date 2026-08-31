@@ -22,12 +22,14 @@
       .navlinks, .navcta, .hstats { display: none !important; }
       .hamb { display: flex !important; }
       .pad { padding-left: 22px !important; padding-right: 22px !important; }
-      .rgrid { grid-template-columns: 1fr !important; }
-      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .rgrid { grid-template-columns: minmax(0, 1fr) !important; }
+      input, textarea, select { min-width: 0; width: 100%; box-sizing: border-box; }
+      .rgrid2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
       .row { flex-direction: column !important; align-items: flex-start !important; }
       .bigtitle { font-size: 32px !important; }
       .midtitle { font-size: 25px !important; }
       .tblgrid { min-width: 860px; }
+      .tabimg { height: 340px !important; }
     }
   </style>
 </helmet>
@@ -56,13 +58,13 @@
 
   <!-- GALLERY + PLANS TABS -->
   <div class="pad" style="padding: 48px 56px 0; display: flex; flex-direction: column; gap: 0;">
-    <div style="display: flex; gap: 0; border-bottom: 2px solid #1B252F;">
+    <div style="display: flex; gap: 0; border-bottom: 2px solid #1B252F; overflow-x: auto;">
       <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="0">
-        <div onClick="{{ t.select }}" role="button" style="cursor: pointer; padding: 13px 26px; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; color: {{ t.color }}; background: {{ t.bg }}; border-radius: 3px 3px 0 0;">{{ t.label }}</div>
+        <div onClick="{{ t.select }}" role="button" style="cursor: pointer; white-space: nowrap; padding: 13px 26px; font-size: 13px; font-weight: 700; letter-spacing: 0.03em; color: {{ t.color }}; background: {{ t.bg }}; border-radius: 3px 3px 0 0;">{{ t.label }}</div>
       </sc-for>
     </div>
     <div style="position: relative; background: #F4F1EA; border: 1px solid #E4E9EC; border-top: none;">
-      <img src="{{ tabImg }}" alt="{{ tabAlt }}" style="width: 100%; height: 560px; object-fit: {{ tabFit }}; display: block; background: #FFFFFF;">
+      <img class="tabimg" src="{{ tabImg }}" alt="{{ tabAlt }}" style="width: 100%; height: 560px; object-fit: {{ tabFit }}; display: block; background: #FFFFFF;">
       <a href="#" style="position: absolute; right: 20px; bottom: 20px; display: inline-flex; align-items: center; gap: 9px; background: #1B252F; color: #D3B574; padding: 12px 20px; border-radius: 2px; font-size: 12.5px; font-weight: 700;">
         <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"></path></svg>
         Preuzmite PDF specifikaciju

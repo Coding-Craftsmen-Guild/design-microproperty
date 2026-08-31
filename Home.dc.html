@@ -23,8 +23,9 @@
       .navlinks, .navcta, .hstats { display: none !important; }
       .hamb { display: flex !important; }
       .pad { padding-left: 22px !important; padding-right: 22px !important; }
-      .rgrid { grid-template-columns: 1fr !important; }
-      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .rgrid { grid-template-columns: minmax(0, 1fr) !important; }
+      input, textarea, select { min-width: 0; width: 100%; box-sizing: border-box; }
+      .rgrid2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
       .row { flex-direction: column !important; align-items: flex-start !important; }
       .bigtitle { font-size: 32px !important; }
       .midtitle { font-size: 25px !important; }
@@ -93,7 +94,7 @@
         </div>
         <div class="serif bigtitle" style="font-size: 54px; font-weight: 600; line-height: 1.08; color: #FFFFFF;">Gradimo naselja u kojima porodice ostaju</div>
         <div style="font-size: 16.5px; line-height: 1.65; color: #C8D5DC; max-width: 540px;">Kupujemo zemljište, projektujemo, gradimo i prodajemo direktno — bez posrednika. Trenutno: <span style="color: #FFFFFF; font-weight: 600;">Vile Seničani</span>, 24 duplex kuće u Aranđelovcu, 70 km od Beograda.</div>
-        <div style="display: flex; gap: 14px; padding-top: 6px;">
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; padding-top: 6px;">
           <a href="#ponuda" style="display: inline-flex; align-items: center; gap: 10px; background: #D3B574; color: #1B252F; padding: 15px 28px; border-radius: 2px; font-size: 14px; font-weight: 700;">
             Pogledajte ponudu
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
@@ -351,7 +352,7 @@
       <div class="serif" style="font-size: 32px; font-weight: 600; color: #FFFFFF; line-height: 1.25;">Zakažite obilazak naselja</div>
       <div style="font-size: 14.5px; line-height: 1.7; color: #C8D5DC;">Dođite u Seničane, prošetajte naseljem i uđite u kuću. Javite nam se — odgovaramo isti dan.</div>
     </div>
-    <div class="rv" style="display: flex; gap: 14px; transition-delay: 0.12s;">
+    <div class="rv" style="display: flex; flex-wrap: wrap; gap: 14px; transition-delay: 0.12s;">
       <a href="tel:+381604060436" style="display: inline-flex; align-items: center; gap: 10px; background: #D3B574; color: #1B252F; padding: 15px 28px; border-radius: 2px; font-size: 14px; font-weight: 700; white-space: nowrap;">060 4060 436</a>
       <a href="mailto:office@megiproperty.rs" style="display: inline-flex; align-items: center; border: 1px solid rgba(200,213,220,0.45); color: #FFFFFF; padding: 15px 28px; border-radius: 2px; font-size: 14px; font-weight: 600; white-space: nowrap;">office@megiproperty.rs</a>
     </div>

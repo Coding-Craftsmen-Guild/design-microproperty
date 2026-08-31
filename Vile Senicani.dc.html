@@ -21,12 +21,14 @@
       .navlinks, .navcta, .hstats { display: none !important; }
       .hamb { display: flex !important; }
       .pad { padding-left: 22px !important; padding-right: 22px !important; }
-      .rgrid { grid-template-columns: 1fr !important; }
-      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .rgrid { grid-template-columns: minmax(0, 1fr) !important; }
+      input, textarea, select { min-width: 0; width: 100%; box-sizing: border-box; }
+      .rgrid2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
       .row { flex-direction: column !important; align-items: flex-start !important; }
       .bigtitle { font-size: 32px !important; }
       .midtitle { font-size: 25px !important; }
       .tblgrid { min-width: 860px; }
+      .phline { display: none; }
     }
   </style>
 </helmet>
@@ -44,7 +46,7 @@
       </div>
       <div class="serif bigtitle" style="font-size: 48px; font-weight: 600; color: #FFFFFF; line-height: 1.1; max-width: 640px;">Vile Seničani</div>
       <div style="font-size: 16px; line-height: 1.65; color: #C8D5DC; max-width: 560px;">Naselje od 12 objekata sa 24 duplex jedinice u Seničanima kod Aranđelovca. Useljenje: proleće 2027.</div>
-      <div style="display: flex; gap: 24px; padding-top: 6px;">
+      <div style="display: flex; flex-wrap: wrap; gap: 24px 24px; padding-top: 6px;">
         <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #FFFFFF;"><div style="width: 8px; height: 8px; background: #D3B574; border-radius: 50%;"></div>14 dostupno</div>
         <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #FFFFFF;"><div style="width: 8px; height: 8px; background: #C8D5DC; border-radius: 50%;"></div>6 rezervisano</div>
         <div style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: #FFFFFF;"><div style="width: 8px; height: 8px; background: #5a656f; border-radius: 50%;"></div>4 prodato</div>
@@ -117,8 +119,8 @@
       </div>
       <div class="serif" style="font-size: 32px; font-weight: 600; color: #FFFFFF;">Gde je projekat danas</div>
     </div>
-    <div class="rv rgrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; position: relative;">
-      <div style="position: absolute; top: 7px; left: 0; right: 0; height: 2px; background: rgba(200,213,220,0.2);"></div>
+    <div class="rv rgrid" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 0; position: relative;">
+      <div class="phline" style="position: absolute; top: 7px; left: 0; right: 0; height: 2px; background: rgba(200,213,220,0.2);"></div>
       <sc-for list="{{ phases }}" as="p" hint-placeholder-count="0">
         <div style="display: flex; flex-direction: column; gap: 12px; position: relative; padding-right: 24px;">
           <div style="width: 16px; height: 16px; border-radius: 50%; background: {{ p.dot }}; border: 2px solid {{ p.dotBorder }}; box-sizing: border-box;"></div>

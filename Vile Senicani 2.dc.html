@@ -22,8 +22,9 @@
       .navlinks, .navcta, .hstats { display: none !important; }
       .hamb { display: flex !important; }
       .pad { padding-left: 22px !important; padding-right: 22px !important; }
-      .rgrid { grid-template-columns: 1fr !important; }
-      .rgrid2 { grid-template-columns: repeat(2, 1fr) !important; }
+      .rgrid { grid-template-columns: minmax(0, 1fr) !important; }
+      input, textarea, select { min-width: 0; width: 100%; box-sizing: border-box; }
+      .rgrid2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
       .row { flex-direction: column !important; align-items: flex-start !important; }
       .bigtitle { font-size: 32px !important; }
       .midtitle { font-size: 25px !important; }
@@ -60,7 +61,7 @@
         <div class="serif midtitle" style="font-size: 34px; font-weight: 600; color: #1B252F; line-height: 1.2;">Sve što kupci prve faze traže — ugrađeno od početka</div>
         <div style="font-size: 14.5px; line-height: 1.7; color: #4a5560;">Drugu fazu projektujemo na osnovu razgovora sa stotinama kupaca iz prve. Dve stvari su tražene iznad svega: garaža i ograđeno dvorište. Obe su sada standard.</div>
       </div>
-      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+      <div class="rgrid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
         <div style="border: 1px solid #E4E9EC; border-top: 3px solid #D3B574; padding: 22px; display: flex; flex-direction: column; gap: 8px;">
           <div class="serif" style="font-size: 19px; font-weight: 600; color: #1B252F;">Garaža uz svaku jedinicu</div>
           <div style="font-size: 13px; line-height: 1.65; color: #4a5560;">Zatvorena garaža + parking mesto ispred, umesto dva otvorena mesta.</div>
